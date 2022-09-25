@@ -94,8 +94,8 @@ public class BoardMapperTests {
 		log.info("testPaging");
 		Criteria cri = new Criteria();
 		//10개씩 3page
-		cri.setPageNum(3);
-		cri.setAmount(10);
+		cri.setPageNum(1);
+		cri.setAmount(30);
 		
 		List<BoardVO> list = mapper.getListWithPaging(cri);
 		

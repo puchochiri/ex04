@@ -61,14 +61,15 @@ foreign key (bno) references tbl_board (bno);
 
 create index idx_reply on tbl_reply (bno desc, rno asc);
 
-
 create table tbl_sample1(col1 varchar2(500))
 
 create table tbl_sample2(col2 varchar2(50))
 
-select * from tbl_sample1
-select * from tbl_sample2.
 
-delete tbl_sample1;
-delete tbl_sample2;
-commit;
+select * from tbl_board
+
+alter table tbl_board add (replycnt number default 0);
+
+update tbl_board set replycnt = 
+(select count(rno) from tbl_reply
+    where tbl_reply.bno = tbl_board.bno);
